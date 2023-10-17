@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mde.ClassGroupsOrganizer.Pages.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="{Binding Name}" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+
+        <ListView ItemsSource="{Binding Students}" ItemTapped="ListView_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Frame BackgroundColor="Pink" CornerRadius="50">
+                                <Label Text="{Binding Group}"></Label>
+                            </Frame>
+                            <Label Text="{Binding Name}"></Label>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+        <Label Text="{Binding Name}" FontSize="Title" Padding="30,10,30,10"/>
+        <Entry Text="{Binding Name}"></Entry>
+
+        <Label Text="{Binding StudentGroup}" FontSize="Title" Padding="30,10,30,10"/>
+        <Entry Text="{Binding StudentGroup}"></Entry>
+
+        <Button Text="Add student" Command="{Binding OnButtonClickedCommand}"></Button>
+    </StackLayout>
+
+</ContentPage>
